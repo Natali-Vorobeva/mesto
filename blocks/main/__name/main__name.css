@@ -1,0 +1,26 @@
+.main__name {
+  position: relative;
+  font-style: normal;
+font-weight: 500;
+font-size: 42px;
+line-height: 1.14;
+margin: 0;
+}
+
+.main__name::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 17px;
+  right: -45px;
+  background-image: url('/images/Edit-Button.svg');
+  transition: opacity .6s ease;
+  cursor: pointer;
+}
+
+
+.main__name:hover::before {
+transition: opacity .5s ease;
+opacity: .7;
+}

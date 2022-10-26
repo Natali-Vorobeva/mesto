@@ -1,0 +1,5 @@
+.main__personal-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0 0 0;
+}

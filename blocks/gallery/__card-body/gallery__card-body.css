@@ -1,0 +1,6 @@
+.gallery__card-body {
+  min-width: 282px;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}

@@ -1,0 +1,10 @@
+.gallery__button-favourites {
+  width: 22px;
+  transition: all .4s ease;
+  cursor: pointer;
+}
+
+.gallery__button-favourites:hover {
+  transition: all .4s ease;
+  opacity: .5;
+}

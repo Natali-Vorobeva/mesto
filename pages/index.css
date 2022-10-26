@@ -7,6 +7,20 @@
 @import url('../blocks/header/__logo/header__logo.css');
 
 @import url('../blocks/main/main.css');
+@import url('../blocks/main/__about/main__about.css');
+@import url('../blocks/main/__avatar/main__avatar.css');
+@import url('../blocks/main/__data/main__data.css');
+@import url('../blocks/main/__name/main__name.css');
+@import url('../blocks/main/__personal-page/main__personal-page.css');
+@import url('../blocks/main/__title/main__title.css');
+@import url('../blocks/main/__button/main__button.css');
+
+@import url('../blocks/gallery/gallery.css');
+@import url('../blocks/gallery/__card-body/gallery__card-body.css');
+@import url('../blocks/gallery/__image/gallery__image.css');
+@import url('../blocks/gallery/__description/gallery__description.css');
+@import url('../blocks/gallery/__name/gallery__name.css');
+@import url('../blocks/gallery/__button-favourites/gallery__button-favourites.css');
 
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');

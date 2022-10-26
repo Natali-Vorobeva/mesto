@@ -1,0 +1,7 @@
+.gallery__image {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  display: block;
+  /* object-fit: cover; */
+}

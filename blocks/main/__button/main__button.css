@@ -1,0 +1,19 @@
+.main__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  font-size: 40px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  background: url('/../../../images/add-button.svg') center center / 22px no-repeat;
+  transition: opacity .4s ease;
+  cursor: pointer;
+}
+
+.main__button:hover {
+  transition: opacity .7s ease;
+  opacity: .7;
+}
