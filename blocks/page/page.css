@@ -10,3 +10,19 @@
   box-sizing: border-box;
   color: #fff;
 }
+
+@media (max-width:981px){
+  .page {
+    padding-left: 50px;
+    padding-right: 50px;
+
+  }
+}
+
+@media (max-width:425px){
+  .page {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+
+}

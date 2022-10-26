@@ -1,3 +1,9 @@
 .main__title {
   display: flex;
 }
+
+@media(max-width:1120px){
+  .main__title {
+    flex-direction: column;
+  }
+}

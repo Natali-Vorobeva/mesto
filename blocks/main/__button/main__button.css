@@ -8,7 +8,7 @@
   height: 50px;
   border: 2px solid #fff;
   border-radius: 2px;
-  background: url('/../../../images/add-button.svg') center center / 22px no-repeat;
+  background: url('../../../images/add-button.svg') center center / 22px no-repeat;
   transition: opacity .4s ease;
   cursor: pointer;
 }
@@ -16,4 +16,22 @@
 .main__button:hover {
   transition: opacity .7s ease;
   opacity: .7;
+}
+
+@media (max-width:897px){
+  .main__button {
+    margin: 36px;
+  }
+}
+
+@media (max-width:768px){
+  .main__button {
+    width: 40%;
+  }
+}
+
+@media (max-width:470px){
+  .main__button {
+    width: calc(100% + (40 - 100) * ((100vw - 320px) / (1280 - 320)));
+  }
 }
