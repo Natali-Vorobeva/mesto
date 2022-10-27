@@ -1,0 +1,17 @@
+.main__open {
+  width: 24px;
+  height: 24px;
+  margin-left: 18px;
+  display: flex;
+  cursor: pointer;
+  padding-top: 40px;
+  /* align-self: center; */
+}
+
+@media (max-width:425px){
+  .main__open {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+  }
+}

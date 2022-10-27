@@ -5,11 +5,16 @@
   font-size: 18px;
   line-height: 1.22;
   margin: 0;
-  padding: 16px 0 0 0;
 }
 
 @media (max-width:768px){
   .main__about {
     align-self: center;
+  }
+}
+
+@media (max-width:425px){
+  .main__about {
+    font-size: 14px;
   }
 }

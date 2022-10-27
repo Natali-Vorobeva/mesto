@@ -4,7 +4,7 @@
   border-radius: 50%;
 }
 
-@media (max-width:897px){
+@media (max-width:768px){
   .main__avatar {
     align-self: center;
   }
