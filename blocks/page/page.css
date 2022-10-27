@@ -13,6 +13,22 @@
 
 @media (max-width:981px){
   .page {
+    padding-left: 100px;
+    padding-right: 100px;
+
+  }
+}
+
+@media (max-width:981px){
+  .page {
+    padding-left: 50px;
+    padding-right: 50px;
+
+  }
+}
+
+@media (max-width:425px){
+  .page {
     padding-left: 0;
     padding-right: 0;
 

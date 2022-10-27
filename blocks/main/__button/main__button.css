@@ -20,7 +20,8 @@
 
 @media (max-width:897px){
   .main__button {
-    margin: 36px;
+    margin-top: 36px;
+    margin-bottom: 36px;
   }
 }
 

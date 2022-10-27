@@ -30,6 +30,13 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   username.textContent = popupUsername.value;
   about.textContent = popupAbout.value;
+  if (popupUsername.value === '') {
+    username.textContent = 'Имя не указано';
+}
+  if (popupAbout.value === '') {
+    about.textContent = 'Не указано';
+}
 }
 saveButton.addEventListener('click', formSubmitHandler);
 formElement.addEventListener('submit', formSubmitHandler);
+saveButton.addEventListener('click', closePopup);

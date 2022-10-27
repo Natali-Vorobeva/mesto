@@ -2,10 +2,9 @@
   flex: 1;
 }
 
-@media (max-width:425px){
+@media (max-width:981px){
   .main {
     padding-left: 19px;
     padding-right: 19px;
   }
-
 }

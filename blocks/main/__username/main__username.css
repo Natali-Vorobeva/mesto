@@ -6,7 +6,7 @@
   line-height: 1.4;
   margin: 0;
   display: flex;
-  
+  text-align: center;
 }
 
 @media (max-width:897px){
