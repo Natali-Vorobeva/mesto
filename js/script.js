@@ -1,42 +1,34 @@
-let popup = document.querySelector('.popup');
-let openPopup = document.querySelector('.main__open');
-let close = document.querySelector('.popup__close');
-let username = document.querySelector('.main__username');
-let about = document.querySelector('.main__about');
-let popupUsername = document.querySelector('.popup__name');
-let popupAbout = document.querySelector('.popup__about');
+const popup = document.querySelector('.popup');
+const openPopup = document.querySelector('.personal-page__open');
+const close = document.querySelector('.popup__close');
+const username = document.querySelector('.personal-page__username');
+const about = document.querySelector('.personal-page__about');
+const popupUserName = document.querySelector('.popup__input_data_name');
+const popupAbout = document.querySelector('.popup__input_data_about');
 
-
+// Функция открытия попап
 function showPopup() {
-popup.classList.add('popup_opened');
-}
-openPopup.addEventListener('click', showPopup);
-
-if (username !== '') {
-  popupUsername.setAttribute('value', username.textContent);
+  popup.classList.add('popup_opened');
+  popupUserName.setAttribute('value', username.textContent);
   popupAbout.setAttribute('value', about.textContent);
 }
 
+// Функция закрытия попап
 function closePopup() {
   popup.classList.remove('popup_opened');
 }
-close.addEventListener('click', closePopup);
-let formElement = document.querySelector('.popup__content');
-let nameValue = popupUsername.getAttribute('value', username.textContent);
-let aboutValue = popupAbout.getAttribute('value', about.textContent);
-let saveButton = document.querySelector('.popup__save');
 
-function formSubmitHandler (evt) {
+const formElement = document.querySelector('.popup__content');
+
+// Функция сохранения
+function submitFormHandler (evt) {
   evt.preventDefault();
-  username.textContent = popupUsername.value;
+  username.textContent = popupUserName.value;
   about.textContent = popupAbout.value;
-  if (popupUsername.value === '') {
-    username.textContent = 'Имя не указано';
+  closePopup();
 }
-  if (popupAbout.value === '') {
-    about.textContent = 'Не указано';
-}
-}
-saveButton.addEventListener('click', formSubmitHandler);
-formElement.addEventListener('submit', formSubmitHandler);
-saveButton.addEventListener('click', closePopup);
+
+//Слушатели
+openPopup.addEventListener('click', showPopup);
+close.addEventListener('click', closePopup);
+formElement.addEventListener('submit', submitFormHandler);

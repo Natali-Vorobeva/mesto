@@ -1,7 +1,7 @@
 .popup__save {
   width: 100%;
-  height: 50px;
-  margin: 40px 0 0 0;
+  margin: 49px 0 0 0;
+  padding: 14px 0 11px 0;
   color: #fff;
   background-color: #000;
   font-style: normal;
@@ -15,6 +15,14 @@
 
 .popup__save:hover {
   transition: all .3s ease;
-  opacity: .6;
+  opacity: .8;
+}
 
+@media (max-width:425px){
+  .popup__save {
+    font-size: 14px;
+    line-height: 1.2;
+    padding-bottom: 14px 0;
+    margin-top: 43px;
+  }
 }

@@ -16,65 +16,80 @@
     <img src="./images/logo.svg" class="header__logo" alt="Логотип">
   </header>
   <main class="main">
-    <div class="main__personal-page">
-      <div class="main__title">
-        <img src="./images/ava.jpg" class="main__avatar" alt="Здесь должна быть аватарка">
-        <div class="main__data">
-          <div class="main__account">
-            <h1 class="main__username">Жанна Кусто</h1>
-            <img src="./images/Edit-Button.svg" class="main__open" alt="Редактировать профиль">
+    <section class="personal-page">
+      <div class="personal-page__title">
+        <img src="./images/ava.jpg" class="personal-page__avatar" alt="Здесь должна быть аватарка">
+        <div class="personal-page__data">
+          <div class="personal-page__account">
+            <h1 class="personal-page__username">Жанна Кусто</h1>
+            <button class="personal-page__edit" type="button" name = "button1">
+              <img src="./images/Edit-Button.svg" class="personal-page__open" alt="Редактировать профиль">
+            </button>
           </div>
-          <p class="main__about">Исследователь планеты</p>
+          <p class="personal-page__about">Исследователь планеты</p>
         </div>
-
       </div>
-      <button class="main__button"></button>
-    </div>
-    <div class="gallery">
+      <button class="personal-page__button" type="button" name = "button2" ">
+        <img src="./images/add-button.svg" class="personal-page__image-button" alt="Добавить">
+      </button>
+    </section>
+    <section class="gallery">
       <figure class="gallery__card-body">
         <img src="./images/karachai.jpg" class="gallery__image" alt="Карачаевск">
         <figcaption class="gallery__description">
-          <div class="gallery__name">Карачаево-Черкессия</div>
-          <img src="./images/add-favorites.png" class="gallery__button-favourites gallery__button-favourites_active"
-            alt="Добавить в избранное">
+          <h2 class="gallery__name">Карачаево-Черкессия</h2>
+          <button class="gallery__button-favourites" type="button" name = "button3">
+            <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          </button>
+
         </figcaption>
       </figure>
       <figure class="gallery__card-body">
         <img src="./images/solovetskiy-kreml.jpg" class="gallery__image" alt="Соловецкие острова">
         <figcaption class="gallery__description">
-          <div class="gallery__name">Соловецкие острова</div>
-          <img src="./images/add-favorites.png" class="gallery__button-favourites" alt="Добавить в избранное">
+          <h2 class="gallery__name">Соловецкие острова</h2>
+          <button class="gallery__button-favourites" type="button" name = "button4">
+            <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          </button>
         </figcaption>
       </figure>
       <figure class="gallery__card-body">
         <img src="./images/vuoksa.jpg" class="gallery__image" alt="Вуокса">
         <figcaption class="gallery__description">
-          <div class="gallery__name">Вуокса</div>
-          <img src="./images/add-favorites.png" class="gallery__button-favourites" alt="Добавить в избранное">
+          <h2 class="gallery__name">Вуокса</h2>
+          <button class="gallery__button-favourites" type="button" name = "button5">
+            <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          </button>
         </figcaption>
       </figure>
       <figure class="gallery__card-body">
         <img src="./images/peterhof.jpg" class="gallery__image" alt="Петергоф">
         <figcaption class="gallery__description">
-          <div class="gallery__name">Петергоф</div>
-          <img src="./images/add-favorites.png" class="gallery__button-favourites" alt="Добавить в избранное">
+          <h2 class="gallery__name">Петергоф</h2>
+          <button class="gallery__button-favourites" type="button" name = "button6">
+            <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          </button>
         </figcaption>
       </figure>
       <figure class="gallery__card-body">
         <img src="./images/kronshtadt.jpg" class="gallery__image" alt="Кронштадт">
         <figcaption class="gallery__description">
-          <div class="gallery__name">Кронштадт</div>
-          <img src="./images/add-favorites.png" class="gallery__button-favourites" alt="Добавить в избранное">
+          <h2 class="gallery__name">Кронштадт</h2>
+          <button class="gallery__button-favourites" type="button" name = "button7">
+            <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          </button>
         </figcaption>
       </figure>
       <figure class="gallery__card-body">
         <img src="./images/ladoga.jpg" class="gallery__image" alt="Ладога">
         <figcaption class="gallery__description">
-          <div class="gallery__name">Ладога</div>
-          <img src="./images/add-favorites.png" class="gallery__button-favourites" alt="Добавить в избранное">
+          <h2 class="gallery__name">Ладога</h2>
+          <button class="gallery__button-favourites" type="button" name = "button8">
+            <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          </button>
         </figcaption>
       </figure>
-    </div>
+    </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
@@ -82,11 +97,13 @@
   <div class="popup">
     <div class="popup__container">
       <form action="#" class="popup__content">
-        <img class="popup__close" src="./images/Close-Icon.svg" alt="Закрыть окно">
+        <button class="popup__close" type="button" name = "button9" aria-label="Закрыть">
+          <img src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
+        </button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input type="text" class="popup__name">
-        <input type="text" class="popup__about">
-        <button type="submit" class="popup__save">Сохранить</button>
+        <input type="text" class="popup__input popup__input_data_name" name="Имя" required>
+        <input type="text" class="popup__input popup__input_data_about" name="О себе" required>
+        <button type="submit" class="popup__save" name = "button10">Сохранить</button>
       </form>
     </div>
   </div>

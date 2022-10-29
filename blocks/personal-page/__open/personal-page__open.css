@@ -1,0 +1,30 @@
+.personal-page__open {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding-top: 8px;
+  transition: opacity .5s ease;
+  margin-left: 18px;
+}
+
+@media (max-width:425px){
+  .personal-page__open {
+    /* width: 18px;
+    height: 18px;
+    padding-top: 6px; */
+  }
+}
+
+.personal-page__open:hover {
+  transition: opacity .5s ease;
+  opacity: 0.6;
+}
+
+@media (max-width:425px){
+  .personal-page__open {
+    /* margin-left: 10px; */
+    width: 18px;
+    height: 18px;
+    margin-left: 0px;
+  }
+}

@@ -1,9 +1,9 @@
-.main__title {
+.personal-page__title {
   display: flex;
 }
 
 @media(max-width:1120px){
-  .main__title {
+  .personal-page__title {
     flex-direction: column;
   }
 }

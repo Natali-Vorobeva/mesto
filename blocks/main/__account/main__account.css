@@ -1,9 +1,0 @@
-.main__account {
-display: flex;
-}
-
-@media (max-width:768px){
-  .main__account {
-    align-self: center;
-  }
-}

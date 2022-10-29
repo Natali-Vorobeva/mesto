@@ -1,19 +1,18 @@
-.main__personal-page {
+.personal-page {
   display: flex;
   justify-content: space-between;
-  padding-top: 36px;
+  padding-top: 35px;
 }
 
 @media (max-width:768px){
-  .main__personal-page {
+  .personal-page {
     flex-direction: column;
   }
 }
 
 @media (max-width:425px){
-  .main__personal-page {
+  .personal-page {
     padding-top: 42px;
-
   }
 
 }
