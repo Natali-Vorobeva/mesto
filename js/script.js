@@ -5,6 +5,7 @@ const username = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
 const popupUserName = document.querySelector('.popup__input_data_name');
 const popupAbout = document.querySelector('.popup__input_data_about');
+const formElement = document.querySelector('.popup__content');
 
 // Функция открытия попап
 function showPopup() {
@@ -17,8 +18,6 @@ function showPopup() {
 function closePopup() {
   popup.classList.remove('popup_opened');
 }
-
-const formElement = document.querySelector('.popup__content');
 
 // Функция сохранения
 function submitFormHandler (evt) {
