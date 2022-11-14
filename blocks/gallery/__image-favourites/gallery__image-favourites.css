@@ -1,8 +1,9 @@
 .gallery__image-favourites {
+display: flex;
+justify-content: center;
+  align-items: center;
   transition: all .5s ease;
-  cursor: pointer;
 }
-
 
 .gallery__image-favourites:hover {
   transition: all .4s ease;
