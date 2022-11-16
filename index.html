@@ -22,15 +22,15 @@
         <div class="personal-page__data">
           <div class="personal-page__account">
             <h1 class="personal-page__username">Жанна Кусто</h1>
-            <button class="personal-page__edit" type="button" name="button1">
+            <button class="personal-page__edit popup-open" type="button" name="button1">
               <img src="./images/Edit-Button.svg" class="personal-page__open" alt="Редактировать профиль">
             </button>
           </div>
           <p class="personal-page__about">Исследователь планеты</p>
         </div>
       </div>
-      <button class="personal-page__button" type="button" name="button2">
-        <img src="./images/add-button.svg" class="personal-page__image-button" alt="Добавить">
+      <button class="personal-page__button popup-open" type="button" name="button2">
+        <img src="./images/add-button.svg" class="personal-page__image-button popup__image-open" alt="Добавить">
       </button>
     </section>
     <section class="gallery">
@@ -67,23 +67,22 @@
     </div>
   </div>
   <div class="popup popup_card_image">
-    <form class="popup__container">
+    <form action="#" name="popup-image" class="popup__container">
       <figure class="popup__card-body">
         <button class="popup__close" type="button" name="button13" aria-label="Закрыть">
           <img id="card-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
         </button>
-        <img class="popup__show-image" src="#" alt="Картинка">
+        <img id="attributeAltImagePopupAdd" class="popup__show-image" src="#" alt="#">
         <figcaption>
           <h2 class="popup__description-name"></h2>
         </figcaption>
       </figure>
     </form>
   </div>
-
   <template id="card-template">
     <figure class="gallery__card-body">
       <img src="./images/garbage.svg" class="gallery__delete" alt="Удалить">
-      <img src="№" class="gallery__image" alt="Картинка">
+      <img id="attributeAltImageAdd" src="#" class="gallery__image gallery__image_source_card" alt="">
       <figcaption class="gallery__description">
         <h2 class="gallery__name"></h2>
         <button class="gallery__button-favourites" type="button" name="button">
