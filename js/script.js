@@ -14,6 +14,8 @@ const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
 
+const closeButtons = document.querySelectorAll('.popup__close');
+
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
 
@@ -55,7 +57,6 @@ function closePopup(popup) {
 }
 
 //  Закрытие попапов
-const closeButtons = document.querySelectorAll('.popup__close');
 closeButtons.forEach((buttonClose) => {
   const popup = buttonClose.closest('.popup');
   buttonClose.addEventListener('click', () => closePopup(popup));
@@ -80,14 +81,14 @@ const generateCard = (dataCard) => {
   const imageCard = newCard.querySelector('.gallery__image');
   imageCard.setAttribute('src', dataCard.link);
   imageCard.setAttribute('alt', `Вид на  ${dataCard.name}`);
-
+  const popupShowImage = document.querySelector('.popup__show-image');
   const imagePopup = document.querySelector('.popup_card_image');
+  const showDescription = document.querySelector('.popup__description-name');
+
   imageCard.addEventListener('click', function () {
     imagePopup.closest('.popup');
-    const popupShowImage = document.querySelector('.popup__show-image');
     popupShowImage.setAttribute('src', dataCard.link);
     popupShowImage.setAttribute('alt', `Вид на  ${dataCard.name}`);
-    const showDescription = document.querySelector('.popup__description-name');
     showDescription.textContent = dataCard.name;
     openPopup(imagePopup);
   });
