@@ -15,7 +15,6 @@ const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
 
-// const popupShowImage = document.querySelector('.popup__show-image');
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
 
