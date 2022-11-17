@@ -7,9 +7,9 @@ const about = document.querySelector('.personal-page__about');
 const popupUserName = document.querySelector('.popup__input_data_name');
 const popupAbout = document.querySelector('.popup__input_data_about');
 const popupShowImage = document.querySelector('.popup_card_image');
+
 const cardPopup = document.querySelector('.popup_form_place');
 const openPopupPlace = document.querySelector('.personal-page__button');
-
 const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
