@@ -1,19 +1,21 @@
-const popupPersonal = document.querySelector('.popup_form_personal');
+const popup = document.querySelector('.popup');
+
 const openPopupPersonal = document.querySelector('.personal-page__open');
 const formAccount = document.forms['account'];
-const buttonAccount = document.querySelector('#personal-save');
+const profilePopup = document.querySelector('#personal-save');
 const username = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
 const popupUserName = document.querySelector('.popup__input_data_name');
 const popupAbout = document.querySelector('.popup__input_data_about');
 
-const popupPlace = document.querySelector('.popup_form_place');
+const cardPopup = document.querySelector('.popup_form_place');
 const openPopupPlace = document.querySelector('.personal-page__button');
 
 const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
 
+// const popupShowImage = document.querySelector('.popup__show-image');
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
 
@@ -55,10 +57,9 @@ function closePopup(popup) {
 }
 
 //  Закрытие попапов
-const closeBtn = document.querySelectorAll('.popup__close');
-const buttonClose = document.querySelector('.popup__image-close');
-closeBtn.forEach((buttonClose) => {
-  let popup = buttonClose.closest('.popup');
+const closeButtons = document.querySelectorAll('.popup__close');
+closeButtons.forEach((buttonClose) => {
+  const popup = buttonClose.closest('.popup');
   buttonClose.addEventListener('click', () => closePopup(popup));
 });
 
@@ -78,18 +79,15 @@ const generateCard = (dataCard) => {
   const newCard = cardTemplate.cloneNode(true);
   const titleCard = newCard.querySelector('.gallery__name');
   titleCard.textContent = dataCard.name;
-  let imageCard = newCard.querySelector('.gallery__image');
+  const imageCard = newCard.querySelector('.gallery__image');
   imageCard.setAttribute('src', dataCard.link);
-  let attributeAltImageAdd = newCard.querySelector('#attributeAltImageAdd');
-  attributeAltImageAdd.setAttribute('alt', `Вид на  ${dataCard.name}`);
+  imageCard.setAttribute('alt', `Вид на  ${dataCard.name}`);
 
   imageCard.addEventListener('click', function () {
-    const showImage = document.querySelector('.popup_card_image');
-    let popup = showImage.closest('.popup');
-
-    let popupShowImage = document.querySelector('.popup__show-image');
+    const imagePopup = document.querySelector('.popup_card_image');
+    const popup = imagePopup .closest('.popup');
+    const popupShowImage = document.querySelector('.popup__show-image');
     popupShowImage.setAttribute('src', dataCard.link);
-
     popupShowImage.setAttribute('alt', `Вид на  ${dataCard.name}`);
     const showdescription = document.querySelector('.popup__description-name');
     showdescription.textContent = dataCard.name;
@@ -116,12 +114,12 @@ function handleSubmitFormAccount(evt) {
   evt.preventDefault();
   username.textContent = popupUserName.value;
   about.textContent = popupAbout.value;
-  popupPersonal.classList.remove('popup_opened');
+  closePopup(popup);
 }
 
 const handleSubmitAddCard = (evt) => {
   evt.preventDefault();
-  popupPlace.classList.remove('popup_opened');
+  cardPopup.classList.remove('popup_opened');
   renderCard({ link: inputCardLink.value, name: inputCardName.value });
   evt.target.reset();
 };
@@ -131,13 +129,13 @@ formAccount.addEventListener('submit', handleSubmitFormAccount);
 formCard.addEventListener('submit', handleSubmitAddCard);
 
 openPopupPersonal.addEventListener('click', function () {
-  let popup = buttonAccount.closest('.popup');
+  const popup = profilePopup.closest('.popup');
   popupUserName.setAttribute('value', username.textContent);
   popupAbout.setAttribute('value', about.textContent);
   openPopup(popup);
 });
 
 openPopupPlace.addEventListener('click', function () {
-  let popup = popupPlace.closest('.popup');
+  const popup = cardPopup.closest('.popup');
   openPopup(popup);
 });
