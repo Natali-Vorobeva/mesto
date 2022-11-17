@@ -1,19 +1,19 @@
-const popup = document.querySelector('.popup');
-
+const profilePopup = document.querySelector('.popup_form_personal');
 const openPopupPersonal = document.querySelector('.personal-page__open');
 const formAccount = document.forms['account'];
-const profilePopup = document.querySelector('#personal-save');
+const buttonAccount = document.querySelector('#personal-save');
 const username = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
 const popupUserName = document.querySelector('.popup__input_data_name');
 const popupAbout = document.querySelector('.popup__input_data_about');
-
+const popupShowImage = document.querySelector('.popup_card_image');
 const cardPopup = document.querySelector('.popup_form_place');
 const openPopupPlace = document.querySelector('.personal-page__button');
 
 const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
+
 
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
@@ -82,15 +82,15 @@ const generateCard = (dataCard) => {
   imageCard.setAttribute('src', dataCard.link);
   imageCard.setAttribute('alt', `Вид на  ${dataCard.name}`);
 
+  const imagePopup = document.querySelector('.popup_card_image');
   imageCard.addEventListener('click', function () {
-    const imagePopup = document.querySelector('.popup_card_image');
-    const popup = imagePopup .closest('.popup');
+    imagePopup.closest('.popup');
     const popupShowImage = document.querySelector('.popup__show-image');
     popupShowImage.setAttribute('src', dataCard.link);
     popupShowImage.setAttribute('alt', `Вид на  ${dataCard.name}`);
-    const showdescription = document.querySelector('.popup__description-name');
-    showdescription.textContent = dataCard.name;
-    openPopup(popup);
+    const showDescription = document.querySelector('.popup__description-name');
+    showDescription.textContent = dataCard.name;
+    openPopup(imagePopup);
   });
 
   const deleteBtn = newCard.querySelector('.gallery__delete');
@@ -118,7 +118,7 @@ function handleSubmitFormAccount(evt) {
 
 const handleSubmitAddCard = (evt) => {
   evt.preventDefault();
-  cardPopup.classList.remove('popup_opened');
+  closePopup(cardPopup);
   renderCard({ link: inputCardLink.value, name: inputCardName.value });
   evt.target.reset();
 };
@@ -128,13 +128,13 @@ formAccount.addEventListener('submit', handleSubmitFormAccount);
 formCard.addEventListener('submit', handleSubmitAddCard);
 
 openPopupPersonal.addEventListener('click', function () {
-  const popup = profilePopup.closest('.popup');
+  profilePopup.closest('.popup');
   popupUserName.setAttribute('value', username.textContent);
   popupAbout.setAttribute('value', about.textContent);
-  openPopup(popup);
+  openPopup(profilePopup);
 });
 
 openPopupPlace.addEventListener('click', function () {
-  const popup = cardPopup.closest('.popup');
-  openPopup(popup);
+  cardPopup.closest('.popup');
+  openPopup(cardPopup);
 });
