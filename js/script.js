@@ -14,7 +14,6 @@ const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
 
-
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
 
@@ -113,7 +112,7 @@ function handleSubmitFormAccount(evt) {
   evt.preventDefault();
   username.textContent = popupUserName.value;
   about.textContent = popupAbout.value;
-  closePopup(popup);
+  closePopup(profilePopup);
 }
 
 const handleSubmitAddCard = (evt) => {
