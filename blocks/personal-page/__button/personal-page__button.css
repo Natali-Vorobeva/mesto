@@ -25,6 +25,11 @@
   }
 }
 
+.personal-page__button:focus-visible {
+  outline-color: #000;
+  outline-style: none;
+}
+
 @media (max-width:768px){
   .personal-page__button {
     width: 40%;

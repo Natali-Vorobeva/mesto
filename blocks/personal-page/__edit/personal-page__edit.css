@@ -5,6 +5,11 @@
   border: none;
 }
 
+.personal-page__edit:focus-visible {
+  outline-color: #000;
+  outline-style: none;
+}
+
 @media (max-width:425px){
   .personal-page__edit {
     position: absolute;

@@ -1,3 +1,3 @@
 {
-	"notebook.navigation.allowNavigateToSurroundingCells": false
+	"notebook.navigation.allowNavigateToSurroundingCells": true
 }

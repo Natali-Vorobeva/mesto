@@ -1,7 +1,6 @@
 const profilePopup = document.querySelector('.popup_form_personal');
 const openPopupPersonal = document.querySelector('.personal-page__open');
 const formAccount = document.forms['account'];
-const buttonAccount = document.querySelector('#personal-save');
 const username = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
 const popupUserName = document.querySelector('.popup__input_data_name');
@@ -15,6 +14,7 @@ const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
 
 const closeButtons = document.querySelectorAll('.popup__close');
+const popupCloseOverlay = document.querySelectorAll('.popup__container');
 
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
@@ -49,6 +49,7 @@ const initialCards = [
 // Функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+
 };
 
 // Функция закрытия попапов
@@ -57,15 +58,38 @@ function closePopup(popup) {
 }
 
 //  Закрытие попапов
+function clearInputs() {
+  formCard.reset();
+}
+
 closeButtons.forEach((buttonClose) => {
-  const popup = buttonClose.closest('.popup');
-  buttonClose.addEventListener('click', () => closePopup(popup));
+  let popup = buttonClose.closest('.popup');
+  buttonClose.addEventListener('click', () => {
+    closePopup(popup);
+    clearInputs();
+  });
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+      clearInputs();
+    }
+  });
+});
+
+popupCloseOverlay.forEach((overlay) => {
+  let popup = overlay.closest('.popup');
+  overlay.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup(popup);
+      clearInputs();
+    };
+  });
 });
 
 //  Удаление карточки
 const handleDeleteCard = (evt) => {
   evt.target.closest('.gallery__card-body').remove();
-}
+};
 
 // Добавление лайка
 const handleLikedCard = (evt) => {
@@ -95,7 +119,6 @@ const generateCard = (dataCard) => {
 
   const deleteBtn = newCard.querySelector('.gallery__delete');
   deleteBtn.addEventListener('click', handleDeleteCard);
-
   const favouritesButton = newCard.querySelector('.gallery__button-favourites');
   favouritesButton.addEventListener('click', handleLikedCard);
   return newCard;
@@ -126,15 +149,14 @@ const handleSubmitAddCard = (evt) => {
 // Слушатели
 formAccount.addEventListener('submit', handleSubmitFormAccount);
 formCard.addEventListener('submit', handleSubmitAddCard);
-
-openPopupPersonal.addEventListener('click', function () {
+openPopupPersonal.addEventListener('click', () => {
   profilePopup.closest('.popup');
   popupUserName.setAttribute('value', username.textContent);
   popupAbout.setAttribute('value', about.textContent);
   openPopup(profilePopup);
 });
 
-openPopupPlace.addEventListener('click', function () {
+openPopupPlace.addEventListener('click',  () => {
   cardPopup.closest('.popup');
   openPopup(cardPopup);
 });

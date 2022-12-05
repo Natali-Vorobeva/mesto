@@ -21,7 +21,7 @@
         <img src="./images/ava.jpg" class="personal-page__avatar" alt="Здесь должна быть аватарка">
         <div class="personal-page__data">
           <div class="personal-page__account">
-            <h1 class="personal-page__username">Жанна Кусто</h1>
+            <h1 class="personal-page__username">Жа</h1>
             <button class="personal-page__edit popup-open" type="button" name="button1">
               <img src="./images/Edit-Button.svg" class="personal-page__open" alt="Редактировать профиль">
             </button>
@@ -41,33 +41,40 @@
   </footer>
   <div class="popup popup_form_personal">
     <div class="popup__container">
-      <form action="#" name="account" class="popup__content popup__content_form_account">
+      <form action="#" name="account" class="form popup__content popup__content_form_account" novalidate>
         <button class="popup__close" type="button" name="button9" aria-label="Закрыть">
           <img id="personal-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
         </button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input type="text" class="popup__input popup__input_data_name" name="name" required>
-        <input type="text" class="popup__input popup__input_data_about" name="about" required>
+        <div class="popup__input-container">
+          <input type="text" id="username-input" class="popup__input popup__input_data_name" name="username" required minlength="2" maxlength="41">
+          <span class="username-input-error popup__input-error"></span>
+          <input type="text" id="about-input" class="popup__input popup__input_data_about" name="about" required minlength="2" maxlength="201">
+          <span class="about-input-error popup__input-error"></span>
+        </div>
         <button id="personal-save" type="submit" class="popup__save" name="button10">Сохранить</button>
       </form>
     </div>
   </div>
   <div class="popup popup_form_place">
     <div class="popup__container">
-      <form action="#" name="place" class="popup__content popup__content_form_cards">
+      <form action="#" name="place" class="form popup__content popup__content_form_cards" novalidate>
         <button class="popup__close" type="button" name="button11" aria-label="Закрыть">
           <img id="place-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
         </button>
         <h3 class="popup__title">Новое место</h3>
-        <input type="text" placeholder="Название" class="popup__input popup__input_name_card" name="name-card">
-        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_address_image"
-          name="address-image">
+        <div class="popup__input-container">
+          <input type="text" id="name-card-input" placeholder="Название" class="popup__input popup__input_name_card" name="nameCard" required minlength="2" maxlength="30">
+          <span class="name-card-input-error popup__input-error"></span>
+          <input type="url" id="link-image-input" placeholder="Ссылка на картинку" class="popup__input popup__input_address_image" name="addressImage" autocomplete="off" required>
+          <span class="link-image-input-error popup__input-error"></span>
+        </div>
         <button id="place-save" type="submit" class="popup__save" name="button12">Сохранить</button>
       </form>
     </div>
   </div>
   <div class="popup popup_card_image">
-    <form action="#" name="popup-image" class="popup__container">
+    <div class="popup__container">
       <figure class="popup__card-body">
         <button class="popup__close" type="button" name="button13" aria-label="Закрыть">
           <img id="card-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
@@ -77,7 +84,7 @@
           <h2 class="popup__description-name"></h2>
         </figcaption>
       </figure>
-    </form>
+    </div>
   </div>
   <template id="card-template">
     <figure class="gallery__card-body">
@@ -93,7 +100,8 @@
       </figcaption>
     </figure>
   </template>
-  <script src="./js/script.js"></script>
+  <script src="./js/validate.js" type="module"></script>
+  <script src="./js/script.js" type="module"></script>
 </body>
 
 </html>
