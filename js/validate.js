@@ -39,15 +39,15 @@ const checkInputValidity = (formElement, inputElement) => {
 };
 
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(selectorsList.inputSelector));
+  const inputsList = Array.from(formElement.querySelectorAll(selectorsList.inputSelector));
   const buttonElement = formElement.querySelector(selectorsList.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement);
-  inputList.forEach((inputElement) => {
+  toggleButtonState(inputsList, buttonElement);
+  inputsList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputsList, buttonElement);
       formElement.addEventListener('reset', () => {
         setTimeout(() => {
-          toggleButtonState(inputList, buttonElement);
+          toggleButtonState(inputsList, buttonElement);
         }, 0);
       });
       isValidStyle(inputElement);
@@ -56,13 +56,13 @@ const setEventListeners = (formElement) => {
   });
 };
 
-function hasInvalidInput(inputList) {
-  return inputList.some((inputElement) => {
+function hasInvalidInput(inputsList) {
+  return inputsList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 }
-function toggleButtonState(inputList, buttonElement) {
-  if(hasInvalidInput(inputList)) {
+function toggleButtonState(inputsList, buttonElement) {
+  if(hasInvalidInput(inputsList)) {
     buttonElement.disabled = true;
     buttonElement.classList.add(selectorsList.inactiveButtonClass);
   } else {
@@ -72,8 +72,8 @@ function toggleButtonState(inputList, buttonElement) {
 }
 
 const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(selectorsList.formSelector));
-  formList.forEach((formElement) => {
+  const formsList = Array.from(document.querySelectorAll(selectorsList.formSelector));
+  formsList.forEach((formElement) => {
     formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
