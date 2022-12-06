@@ -5,16 +5,12 @@ const username = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
 const popupUserName = document.querySelector('.popup__input_data_name');
 const popupAbout = document.querySelector('.popup__input_data_about');
-const popupShowImage = document.querySelector('.popup_card_image');
 
 const cardPopup = document.querySelector('.popup_form_place');
 const openPopupPlace = document.querySelector('.personal-page__button');
 const formCard = document.forms['place'];
 const inputCardName = document.querySelector('.popup__input_name_card');
 const inputCardLink = document.querySelector('.popup__input_address_image');
-
-const closeButtons = document.querySelectorAll('.popup__close');
-const popupCloseOverlay = document.querySelectorAll('.popup__container');
 
 const cardContainer = document.querySelector('.gallery');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.gallery__card-body');
@@ -49,42 +45,36 @@ const initialCards = [
 // Функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-
+  document.addEventListener('keydown', closeByEscape);
 };
 
 // Функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 //  Закрытие попапов
-function clearInputs() {
-  formCard.reset();
-}
-
-closeButtons.forEach((buttonClose) => {
-  let popup = buttonClose.closest('.popup');
-  buttonClose.addEventListener('click', () => {
-    closePopup(popup);
-    clearInputs();
-  });
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup__container')) {
       closePopup(popup);
-      clearInputs();
+    }
+    if (evt.target.classList.contains('popup__image-close')) {
+      closePopup(popup);
     }
   });
 });
 
-popupCloseOverlay.forEach((overlay) => {
-  let popup = overlay.closest('.popup');
-  overlay.addEventListener('click', (evt) => {
-    if (evt.target === evt.currentTarget) {
-      closePopup(popup);
-      clearInputs();
-    };
-  });
-});
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  };
+};
+
 
 //  Удаление карточки
 const handleDeleteCard = (evt) => {
@@ -110,7 +100,6 @@ const generateCard = (dataCard) => {
   const showDescription = document.querySelector('.popup__description-name');
 
   imageCard.addEventListener('click', function () {
-    imagePopup.closest('.popup');
     popupShowImage.setAttribute('src', dataCard.link);
     popupShowImage.setAttribute('alt', `Вид на  ${dataCard.name}`);
     showDescription.textContent = dataCard.name;
@@ -150,13 +139,10 @@ const handleSubmitAddCard = (evt) => {
 formAccount.addEventListener('submit', handleSubmitFormAccount);
 formCard.addEventListener('submit', handleSubmitAddCard);
 openPopupPersonal.addEventListener('click', () => {
-  profilePopup.closest('.popup');
   popupUserName.setAttribute('value', username.textContent);
   popupAbout.setAttribute('value', about.textContent);
   openPopup(profilePopup);
 });
-
 openPopupPlace.addEventListener('click',  () => {
-  cardPopup.closest('.popup');
   openPopup(cardPopup);
 });

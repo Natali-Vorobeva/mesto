@@ -52,4 +52,14 @@
 @import url('../blocks/popup/__save/_disabled/popup__save_disabled.css');
 @import url('../blocks/popup/__gallery-card/popup__gallery-card.css');
 @import url('../blocks/popup/__description-name/popup__description-name.css');
+
 @import url('../blocks/active/active.css');
+@import url('../blocks/inputValidStyle/inputValidStyle.css');
+@import url('../blocks/errorValidStyle/errorValidStyle.css');
+
+
+
+
+
+
+
