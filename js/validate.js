@@ -9,21 +9,21 @@ const selectorsList = {
   validStyleErrorClass: 'errorValidStyle',
 }
 
-const showInputError = (formElement, inputElement, errorMessage, selectorsList) => {
+const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(selectorsList.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(selectorsList.errorClass);
 };
 
-const hideInputError = (formElement, inputElement, selectorsList) => {
+const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(selectorsList.inputErrorClass);
   errorElement.textContent = '';
   errorElement.classList.add(selectorsList.validStyleErrorClass);
 };
 
-const isValidStyle = (inputElement, selectorsList) => {
+const isValidStyle = (inputElement) => {
   if(!inputElement.validity.valid) {
   inputElement.classList.add(selectorsList.validStyleInputClass);
   return;
@@ -39,7 +39,7 @@ const checkInputValidity = (formElement, inputElement) => {
 };
 
 
-const setEventListeners = (formElement, selectorsList) => {
+const setEventListeners = (formElement) => {
   const inputsList = Array.from(formElement.querySelectorAll(selectorsList.inputSelector));
   const buttonElement = formElement.querySelector(selectorsList.submitButtonSelector);
   toggleButtonState(inputsList, buttonElement);
