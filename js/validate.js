@@ -9,28 +9,28 @@ const selectorsList = {
   validStyleErrorClass: 'errorValidStyle',
 }
 
-const showInputError = (formElement, inputElement, errorMessage, selectorsList) => {
+const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(selectorsList.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(selectorsList.errorClass);
 };
 
-const hideInputError = (formElement, inputElement, selectorsList) => {
+const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(selectorsList.inputErrorClass);
   errorElement.textContent = '';
   errorElement.classList.add(selectorsList.validStyleErrorClass);
 };
 
-const isValidStyle = (inputElement, selectorsList) => {
+const isValidStyle = (inputElement) => {
   if(!inputElement.validity.valid) {
   inputElement.classList.add(selectorsList.validStyleInputClass);
   return;
   };
 };
 
-const checkInputValidity = (formElement, inputElement, selectorsList) => {
+const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -38,16 +38,17 @@ const checkInputValidity = (formElement, inputElement, selectorsList) => {
   }
 };
 
-formElement.addEventListener('reset', () => {
+
+const setEventListeners = (formElement) => {
+  const inputsList = Array.from(formElement.querySelectorAll(selectorsList.inputSelector));
+  const buttonElement = formElement.querySelector(selectorsList.submitButtonSelector);
+  toggleButtonState(inputsList, buttonElement);
+	formElement.addEventListener('reset', () => {
         setTimeout(() => {
           toggleButtonState(inputsList, buttonElement);
         }, 0);
       });
 
-const setEventListeners = (formElement, selectorsList) => {
-  const inputsList = Array.from(formElement.querySelectorAll(selectorsList.inputSelector));
-  const buttonElement = formElement.querySelector(selectorsList.submitButtonSelector);
-  toggleButtonState(inputsList, buttonElement);
   inputsList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       toggleButtonState(inputsList, buttonElement);
@@ -57,12 +58,12 @@ const setEventListeners = (formElement, selectorsList) => {
   });
 };
 
-function hasInvalidInput(inputsList, selectorsList) {
+function hasInvalidInput(inputsList) {
   return inputsList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 }
-function toggleButtonState(inputsList, buttonElement, selectorsList) {
+function toggleButtonState(inputsList, buttonElement) {
   if(hasInvalidInput(inputsList)) {
     buttonElement.disabled = true;
     buttonElement.classList.add(selectorsList.inactiveButtonClass);
