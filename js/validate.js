@@ -63,7 +63,7 @@ function hasInvalidInput(inputsList) {
     return !inputElement.validity.valid;
   });
 }
-function toggleButtonState(inputsList, buttonElement) {
+function toggleButtonState(inputsList, buttonElement, ) {
   if(hasInvalidInput(inputsList)) {
     buttonElement.disabled = true;
     buttonElement.classList.add(selectorsList.inactiveButtonClass);
@@ -74,7 +74,7 @@ function toggleButtonState(inputsList, buttonElement) {
 }
 
 
-const enableValidation = (selectorsList) => {
+const enableValidation = () => {
   const formsList = Array.from(document.querySelectorAll(selectorsList.formSelector));
   formsList.forEach((formElement) => {
     formElement.addEventListener('submit', function (evt) {
