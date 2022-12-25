@@ -47,9 +47,9 @@
         </button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <div class="popup__input-container">
-          <input type="text" id="username-input" class="popup__input popup__input_data_name" name="username" required minlength="2" maxlength="40" autocomplete="off">
+          <input type="text" id="username-input" placeholder="Имя" class="popup__input popup__input_data_name" name="username" required minlength="2" maxlength="40" autocomplete="off">
           <span class="username-input-error popup__input-error"></span>
-          <input type="text" id="about-input" class="popup__input popup__input_data_about" name="about" required minlength="2" maxlength="200" autocomplete="off">
+          <input type="text" id="about-input" placeholder="Вид деятельности" class="popup__input popup__input_data_about" name="about" required minlength="2" maxlength="200" autocomplete="off">
           <span class="about-input-error popup__input-error"></span>
         </div>
         <button id="personal-save" type="submit" class="popup__save" name="button10">Сохранить</button>
@@ -86,7 +86,7 @@
       </figure>
     </div>
   </div>
-  <template id="card-template">
+  <template id="card-template" class="template"  >
     <figure class="gallery__card-body">
       <img src="./images/garbage.svg" class="gallery__delete" alt="Удалить">
       <img src="#" class="gallery__image gallery__image_source_card" alt="">
@@ -104,6 +104,7 @@
   <script src="./js/Card.js" type="module" defer></script>
   <script src="./js/index.js" type="module" defer></script>
   <script src="./js/utils.js" type="module" defer></script>
+  <script src="./js/constants.js" type="module" defer></script>
 </body>
 
 </html>
