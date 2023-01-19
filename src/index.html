@@ -8,29 +8,29 @@
   <meta name="author" content="Наталья Воробьёва, vorobjeva.natalia76@yandex.ru, Санкт-Петербург">
   <meta name="keywords" content="">
   <title>Сайт о путешествиях</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
   <header class="header">
-    <img src="./images/logo.svg" class="header__logo" alt="Логотип">
+    <img src="<%=require('../images/logo.svg')%>" class="header__logo" alt="Логотип">
   </header>
   <main class="main">
     <section class="personal-page">
       <div class="personal-page__title">
-        <img src="./images/ava.jpg" class="personal-page__avatar" alt="Здесь должна быть аватарка">
+        <img src="<%=require('../images/ava.jpg')%>" class="personal-page__avatar" alt="Здесь должна быть аватарка">
         <div class="personal-page__data">
           <div class="personal-page__account">
             <h1 class="personal-page__username">Жа</h1>
             <button class="personal-page__edit popup-open" type="button" name="button1">
-              <img src="./images/Edit-Button.svg" class="personal-page__open" alt="Редактировать профиль">
+              <img src="<%=require('../images/Edit-Button.svg')%>" class="personal-page__open"
+                alt="Редактировать профиль">
             </button>
           </div>
           <p class="personal-page__about">Исследователь планеты</p>
         </div>
       </div>
       <button class="personal-page__button popup-open" type="button" name="button2">
-        <img src="./images/add-button.svg" class="personal-page__image-button" alt="Добавить">
+        <img src="<%=require('../images/add-button.svg')%>" class="personal-page__image-button" alt="Добавить">
       </button>
     </section>
     <section class="gallery">
@@ -43,13 +43,17 @@
     <div class="popup__container">
       <form action="#" name="account" class="form popup__content popup__content_form_account" novalidate>
         <button class="popup__close" type="button" name="button9" aria-label="Закрыть">
-          <img id="personal-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
+          <img id="personal-close" src="<%=require('../images/Close-Icon.svg')%>" class="popup__image-close"
+            alt="Закрыть окно">
         </button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <div class="popup__input-container">
-          <input type="text" id="username-input" placeholder="Имя" class="popup__input popup__input_data_name" name="username" required minlength="2" maxlength="40" autocomplete="off">
+          <input type="text" id="username-input" placeholder="Имя" class="popup__input popup__input_data_name"
+            name="username" required minlength="2" maxlength="40" autocomplete="off">
           <span class="username-input-error popup__input-error"></span>
-          <input type="text" id="about-input" placeholder="Вид деятельности" class="popup__input popup__input_data_about" name="about" required minlength="2" maxlength="200" autocomplete="off">
+          <input type="text" id="about-input" placeholder="Вид деятельности"
+            class="popup__input popup__input_data_about" name="about" required minlength="2" maxlength="200"
+            autocomplete="off">
           <span class="about-input-error popup__input-error"></span>
         </div>
         <button id="personal-save" type="submit" class="popup__save" name="button10">Сохранить</button>
@@ -60,13 +64,16 @@
     <div class="popup__container">
       <form action="#" name="place" class="form popup__content popup__content_form_cards" novalidate>
         <button class="popup__close" type="button" name="button11" aria-label="Закрыть">
-          <img id="place-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
+          <img id="place-close" src="<%=require('../images/Close-Icon.svg')%>" class="popup__image-close"
+            alt="Закрыть окно">
         </button>
         <h3 class="popup__title">Новое место</h3>
         <div class="popup__input-container">
-          <input type="text" id="name-card-input" placeholder="Название" class="popup__input popup__input_name_card" name="nameCard" required minlength="2" maxlength="30" autocomplete="off">
+          <input type="text" id="name-card-input" placeholder="Название" class="popup__input popup__input_name_card"
+            name="name" required minlength="2" maxlength="30" autocomplete="off">
           <span class="name-card-input-error popup__input-error"></span>
-          <input type="url" id="link-image-input" placeholder="Ссылка на картинку" class="popup__input popup__input_address_image" name="addressImage" autocomplete="off" required>
+          <input type="url" id="link-image-input" placeholder="Ссылка на картинку"
+            class="popup__input popup__input_address_image" name="link" autocomplete="off" required>
           <span class="link-image-input-error popup__input-error"></span>
         </div>
         <button id="place-save" type="submit" class="popup__save" name="button12">Сохранить</button>
@@ -77,7 +84,8 @@
     <div class="popup__container">
       <figure class="popup__card-body">
         <button class="popup__close" type="button" name="button13" aria-label="Закрыть">
-          <img id="card-close" src="./images/Close-Icon.svg" class="popup__image-close" alt="Закрыть окно">
+          <img id="card-close" src="<%=require('../images/Close-Icon.svg')%>" class="popup__image-close"
+            alt="Закрыть окно">
         </button>
         <img class="popup__show-image" src="#" alt="#">
         <figcaption>
@@ -86,25 +94,21 @@
       </figure>
     </div>
   </div>
-  <template id="card-template" class="template"  >
+  <template id="card-template" class="template">
     <figure class="gallery__card-body">
-      <img src="./images/garbage.svg" class="gallery__delete" alt="Удалить">
+      <img src="<%=require('../images/garbage.svg')%>" class="gallery__delete" alt="Удалить">
       <img src="#" class="gallery__image gallery__image_source_card" alt="">
       <figcaption class="gallery__description">
         <h2 class="gallery__name"></h2>
         <button class="gallery__button-favourites" type="button" name="button">
-          <img src="./images/favorite-black.svg" class="gallery__image-favourites-liked active"
+          <img src="<%=require('../images/favorite-black.svg')%>" class="gallery__image-favourites-liked active"
             alt="Добавить в избранное">
-          <img src="./images/add-favorites.svg" class="gallery__image-favourites" alt="Добавить в избранное">
+          <img src="<%=require('../images/add-favorites.svg')%>" class="gallery__image-favourites"
+            alt="Добавить в избранное">
         </button>
       </figcaption>
     </figure>
   </template>
-  <script src="./js/FormValidator.js" type="module" defer></script>
-  <script src="./js/Card.js" type="module" defer></script>
-  <script src="./js/index.js" type="module" defer></script>
-  <script src="./js/utils.js" type="module" defer></script>
-  <script src="./js/constants.js" type="module" defer></script>
 </body>
 
 </html>

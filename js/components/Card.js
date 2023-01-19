@@ -1,17 +1,16 @@
-import { openPopup } from './utils.js';
-const popupImage = document.querySelector('.popup_card_image');
-const popupShowImage = document.querySelector('.popup__show-image');
-const showDescription = document.querySelector('.popup__description-name');
-
 class Card {
-  constructor(data, templateSelector) {
-    this._name = data.name;
-    this._link = data.link;
-    this._template = document.querySelector(templateSelector);
+  constructor({item,
+     handleCardClick},
+      templateSelector ) {
+    this._name = item.name;
+    this._link = item.link;
+    this._template = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
-    const card = this._template
+    const card = document
+    .querySelector(this._template)
     .content
     .querySelector('.gallery__card-body')
     .cloneNode(true);
@@ -36,12 +35,6 @@ class Card {
     this._newCard.querySelector('.gallery__image-favourites-liked').classList.toggle('active');
   }
 
-  _openPopupImage() {
-      popupShowImage.src = this._link;
-      popupShowImage.alt = `Вид на  ${this._name}`;
-      showDescription.textContent = this._name;
-      openPopup(popupImage);
-    };
 
     _setEventListeners() {
     const deleteBtn = this._newCard.querySelector('.gallery__delete');
@@ -55,14 +48,19 @@ class Card {
       this._favouritesCard();
       evt.stopPropagation();
     });
-    this._newCard.addEventListener('click', () => { this._openPopupImage() });
+
+    this._newCard.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._link);
+    });
     }
 
-  getView() {
+    generate() {
     this._newCard = this._getTemplate();
     this._setData();
     this._setEventListeners();
+
     return this._newCard;
   }
 }
+
 export default Card;
