@@ -24,3 +24,6 @@
     name: 'Санкт-Петербург',
   }
 ];
+
+export const popupUserName = document.querySelector('.popup__input_data_name');
+export const popupAbout = document.querySelector('.popup__input_data_about');

@@ -1,5 +1,4 @@
-const popupUserName = document.querySelector('.popup__input_data_name');
-const popupAbout = document.querySelector('.popup__input_data_about');
+import { popupUserName, popupAbout } from '../utils/constants.js'
 export default class UserInfo {
   constructor( { username, about } ) {
     this._username = username;
@@ -8,12 +7,13 @@ export default class UserInfo {
     this._popupAbout = popupAbout;
   }
 
-  setUserInfo() {
+  getUserInfo() {
     this._popupUserName.setAttribute('value', this._username.textContent);
     this._popupAbout.setAttribute('value', this._about.textContent);
+    return;
   }
 
-  getUserInfo() {
+  setUserInfo() {
     this._username.textContent = this._popupUserName.value;
     this._about.textContent = this._popupAbout.value;
   }

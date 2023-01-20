@@ -1,13 +1,12 @@
 import '../pages/index.css';
 
-import Card from '../js/components/Card.js';
-import { FormValidator, selectorsList } from '../js/components/FormValidator.js';
-import { initialCards } from '../js/utils/constants.js';
-import Popup from '../js/components/Popup.js';
-import UserInfo from '../js/components/UserInfo.js';
-import Section from '../js/components/Section.js';
-import PopupWithImage from '../js/components/PopupWithImage.js';
-import PopupWithForm from '../js/components/PopupWithForm.js';
+import Card from '../src/components/Card.js';
+import { FormValidator, selectorsList } from '../src/components/FormValidator.js';
+import { initialCards } from '../src/utils/constants.js';
+import UserInfo from '../src/components/UserInfo.js';
+import Section from '../src/components/Section.js';
+import PopupWithImage from '../src/components/PopupWithImage.js';
+import PopupWithForm from '../src/components/PopupWithForm.js';
 
 const openPopupPersonal = document.querySelector('.personal-page__open');
 const formAccount = document.forms['account'];
@@ -25,6 +24,8 @@ const createCard = (item) => {
     item: item,
     handleCardClick: (name, link) => {
       imagePopup.openPopup(name, link);
+      imagePopup.setEventListeners();
+
     }}, '.template');
   const cardElement = card.generate();
   return cardElement;
@@ -44,20 +45,15 @@ const userInfo = new UserInfo( { username, about } );
 const editProfilePopup = new PopupWithForm({
   popupSelector: '.popup_form_personal',
   handleFormSubmit: () => {
-  userInfo.getUserInfo();
-  const closePersonal = new Popup('.popup_form_personal');
-  closePersonal.closePopup();
-  const disableButton = new FormValidator(selectorsList, formAccount);
-  disableButton.disableButtonState();
+  userInfo.setUserInfo();
+  editProfilePopup.closePopup();
   }
 });
 editProfilePopup.setEventListeners();
 
 openPopupPersonal.addEventListener('click', () => {
-  userInfo.setUserInfo();
-  const openPersonal = new Popup('.popup_form_personal');
-  openPersonal.openPopup();
-  openPersonal.setEventListeners();
+  userInfo.getUserInfo();
+  editProfilePopup.openPopup();
   });
 
 // Отправка формы добавления новой карточки
@@ -71,9 +67,7 @@ const submitFormAddCard = new PopupWithForm({
 submitFormAddCard.setEventListeners();
 
 openPopupPlace.addEventListener('click',  () => {
-  const placePopupOpen = new Popup('.popup_form_place');
-  placePopupOpen.openPopup();
-  placePopupOpen.setEventListeners();
+  submitFormAddCard.openPopup();
 });
 
   // Валидация форм

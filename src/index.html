@@ -12,17 +12,17 @@
 
 <body class="page">
   <header class="header">
-    <img src="<%=require('../images/logo.svg')%>" class="header__logo" alt="Логотип">
+    <img src="<%=require('./images/logo.svg')%>" class="header__logo" alt="Логотип">
   </header>
   <main class="main">
     <section class="personal-page">
       <div class="personal-page__title">
-        <img src="<%=require('../images/ava.jpg')%>" class="personal-page__avatar" alt="Здесь должна быть аватарка">
+        <img src="<%=require('./images/ava.jpg')%>" class="personal-page__avatar" alt="Здесь должна быть аватарка">
         <div class="personal-page__data">
           <div class="personal-page__account">
             <h1 class="personal-page__username">Жа</h1>
             <button class="personal-page__edit popup-open" type="button" name="button1">
-              <img src="<%=require('../images/Edit-Button.svg')%>" class="personal-page__open"
+              <img src="<%=require('./images/Edit-Button.svg')%>" class="personal-page__open"
                 alt="Редактировать профиль">
             </button>
           </div>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <button class="personal-page__button popup-open" type="button" name="button2">
-        <img src="<%=require('../images/add-button.svg')%>" class="personal-page__image-button" alt="Добавить">
+        <img src="<%=require('./images/add-button.svg')%>" class="personal-page__image-button" alt="Добавить">
       </button>
     </section>
     <section class="gallery">
@@ -43,7 +43,7 @@
     <div class="popup__container">
       <form action="#" name="account" class="form popup__content popup__content_form_account" novalidate>
         <button class="popup__close" type="button" name="button9" aria-label="Закрыть">
-          <img id="personal-close" src="<%=require('../images/Close-Icon.svg')%>" class="popup__image-close"
+          <img id="personal-close" src="<%=require('./images/Close-Icon.svg')%>" class="popup__image-close"
             alt="Закрыть окно">
         </button>
         <h3 class="popup__title">Редактировать профиль</h3>
@@ -64,7 +64,7 @@
     <div class="popup__container">
       <form action="#" name="place" class="form popup__content popup__content_form_cards" novalidate>
         <button class="popup__close" type="button" name="button11" aria-label="Закрыть">
-          <img id="place-close" src="<%=require('../images/Close-Icon.svg')%>" class="popup__image-close"
+          <img id="place-close" src="<%=require('./images/Close-Icon.svg')%>" class="popup__image-close"
             alt="Закрыть окно">
         </button>
         <h3 class="popup__title">Новое место</h3>
@@ -84,7 +84,7 @@
     <div class="popup__container">
       <figure class="popup__card-body">
         <button class="popup__close" type="button" name="button13" aria-label="Закрыть">
-          <img id="card-close" src="<%=require('../images/Close-Icon.svg')%>" class="popup__image-close"
+          <img id="card-close" src="<%=require('./images/Close-Icon.svg')%>" class="popup__image-close"
             alt="Закрыть окно">
         </button>
         <img class="popup__show-image" src="#" alt="#">
@@ -96,14 +96,14 @@
   </div>
   <template id="card-template" class="template">
     <figure class="gallery__card-body">
-      <img src="<%=require('../images/garbage.svg')%>" class="gallery__delete" alt="Удалить">
+      <img src="<%=require('./images/garbage.svg')%>" class="gallery__delete" alt="Удалить">
       <img src="#" class="gallery__image gallery__image_source_card" alt="">
       <figcaption class="gallery__description">
         <h2 class="gallery__name"></h2>
         <button class="gallery__button-favourites" type="button" name="button">
-          <img src="<%=require('../images/favorite-black.svg')%>" class="gallery__image-favourites-liked active"
+          <img src="<%=require('./images/favorite-black.svg')%>" class="gallery__image-favourites-liked active"
             alt="Добавить в избранное">
-          <img src="<%=require('../images/add-favorites.svg')%>" class="gallery__image-favourites"
+          <img src="<%=require('./images/add-favorites.svg')%>" class="gallery__image-favourites"
             alt="Добавить в избранное">
         </button>
       </figcaption>
