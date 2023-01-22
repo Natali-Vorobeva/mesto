@@ -10,7 +10,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 
 const openPopupPersonal = document.querySelector('.personal-page__open');
 const formAccount = document.forms['account'];
-const username = document.querySelector('.personal-page__username');
+const userName = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
 export const popupUserName = document.querySelector('.popup__input_data_name');
 export const popupAbout = document.querySelector('.popup__input_data_about');
@@ -45,14 +45,12 @@ cardList.renderItems();
 
 // Отправка формы Аккаунт
 
-const userInfo = new UserInfo( { username, about } );
+const userInfo = new UserInfo( { userName, about } );
 
 const editProfilePopup = new PopupWithForm({
   popupSelector: '.popup_form_personal',
   handleFormSubmit: (userData) => {
-    userInfo.setUserInfo({username: userData.username, about: userData.about});
-    username.textContent = userData.username;
-    about.textContent = userData.about;
+    userInfo.setUserInfo(userData.userName, userData.about);
     editProfilePopup.closePopup();
   }
 });
@@ -60,7 +58,7 @@ editProfilePopup.setEventListeners();
 
 openPopupPersonal.addEventListener('click', () => {
   const userData = userInfo.getUserInfo();
-  popupUserName.setAttribute('value', userData.username);
+  popupUserName.setAttribute('value', userData.userName);
   popupAbout.setAttribute('value', userData.about);
   editProfilePopup.openPopup();
   });

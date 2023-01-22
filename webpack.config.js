@@ -16,8 +16,9 @@ module.exports = {
   mode: 'development',
   devServer: {
     static: path.resolve(__dirname, './dist'),
-    watchFiles: ['.src/*.html'],
+    watchFiles: ['./src/*.html'],
     hot: true,
+    // watchContentBase: true,
     open: true,
     compress: true,
     port: 8080
