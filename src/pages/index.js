@@ -1,17 +1,19 @@
-import '../pages/index.css';
+import './index.css';
 
-import Card from '../src/components/Card.js';
-import { FormValidator, selectorsList } from '../src/components/FormValidator.js';
-import { initialCards } from '../src/utils/constants.js';
-import UserInfo from '../src/components/UserInfo.js';
-import Section from '../src/components/Section.js';
-import PopupWithImage from '../src/components/PopupWithImage.js';
-import PopupWithForm from '../src/components/PopupWithForm.js';
+import Card from '../components/Card.js';
+import { FormValidator, selectorsList } from '../components/FormValidator.js';
+import { initialCards } from '../utils/constants.js';
+import UserInfo from '../components/UserInfo.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
 
 const openPopupPersonal = document.querySelector('.personal-page__open');
 const formAccount = document.forms['account'];
 const username = document.querySelector('.personal-page__username');
 const about = document.querySelector('.personal-page__about');
+export const popupUserName = document.querySelector('.popup__input_data_name');
+export const popupAbout = document.querySelector('.popup__input_data_about');
 
 const openPopupPlace = document.querySelector('.personal-page__button');
 const formCard = document.forms['place'];
@@ -19,19 +21,20 @@ const formCard = document.forms['place'];
 const imagePopup = new PopupWithImage('.popup_card_image');
 
 // Функция создания карточки
+
 const createCard = (item) => {
   const card = new Card({
     item: item,
     handleCardClick: (name, link) => {
       imagePopup.openPopup(name, link);
-      imagePopup.setEventListeners();
-
     }}, '.template');
   const cardElement = card.generate();
   return cardElement;
 };
+imagePopup.setEventListeners();
 
 // Добавление карточек
+
 const cardList = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -41,22 +44,29 @@ const cardList = new Section({
 cardList.renderItems();
 
 // Отправка формы Аккаунт
+
 const userInfo = new UserInfo( { username, about } );
+
 const editProfilePopup = new PopupWithForm({
   popupSelector: '.popup_form_personal',
-  handleFormSubmit: () => {
-  userInfo.setUserInfo();
-  editProfilePopup.closePopup();
+  handleFormSubmit: (userData) => {
+    userInfo.setUserInfo({username: userData.username, about: userData.about});
+    username.textContent = userData.username;
+    about.textContent = userData.about;
+    editProfilePopup.closePopup();
   }
 });
 editProfilePopup.setEventListeners();
 
 openPopupPersonal.addEventListener('click', () => {
-  userInfo.getUserInfo();
+  const userData = userInfo.getUserInfo();
+  popupUserName.setAttribute('value', userData.username);
+  popupAbout.setAttribute('value', userData.about);
   editProfilePopup.openPopup();
   });
 
 // Отправка формы добавления новой карточки
+
 const submitFormAddCard = new PopupWithForm({
   popupSelector: '.popup_form_place',
   handleFormSubmit: (formData) => {
@@ -71,6 +81,7 @@ openPopupPlace.addEventListener('click',  () => {
 });
 
   // Валидация форм
+
 const validationFormAccount = new FormValidator(selectorsList, formAccount);
 validationFormAccount.enableValidation();
 const validationFormAddCard = new FormValidator(selectorsList, formCard);

@@ -74,14 +74,14 @@ class FormValidator {
 
   _setEventListeners() {
     this._toggleButtonState();
+    this._form.addEventListener('reset', () => {
+      setTimeout(() => {
+        this._toggleButtonState();
+      }, 0);
+    });
     this._inputsList.forEach((inputEl) => {
       inputEl.addEventListener('input', () => {
         this._toggleButtonState();
-        this._form.addEventListener('reset', () => {
-          setTimeout(() => {
-            this._toggleButtonState();
-          }, 0);
-        });
         this._isValidStyle(inputEl);
         this._checkInputValidity(inputEl);
       });

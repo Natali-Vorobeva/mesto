@@ -6,7 +6,6 @@ class Card {
     this._link = item.link;
     this._template = templateSelector;
     this._handleCardClick = handleCardClick;
-    // this._likeButton =
   }
 
   _getTemplate() {
@@ -33,10 +32,8 @@ class Card {
   }
 
   _toggleLike() {
-    const likeButton = this._newCard.querySelector('.gallery__image-favourites-liked');
-    likeButton.classList.toggle('active');
+    this._likeButton.classList.toggle('active');
   }
-
 
     _setEventListeners() {
     const deleteBtn = this._newCard.querySelector('.gallery__delete');
@@ -46,6 +43,7 @@ class Card {
 
     const favouritesButton = this._newCard.querySelector('.gallery__button-favourites');
     favouritesButton.addEventListener('click', (evt) => {
+
       this._toggleLike();
     });
 
@@ -58,9 +56,9 @@ class Card {
 
     generate() {
     this._newCard = this._getTemplate();
+    this._likeButton = this._newCard.querySelector('.gallery__image-favourites-liked');
     this._setData();
     this._setEventListeners();
-
     return this._newCard;
   }
 }
