@@ -8,7 +8,7 @@
 .personal-page__account{-moz-column-gap:10px;column-gap:10px;display:flex;justify-content:space-between;justify-self:center;max-width:336px;position:relative}@media (max-width:768px){.personal-page__account{align-self:center}}
 .personal-page__about{font-size:calc(12.66667px + .41667vw);font-size:18px;font-style:normal;font-weight:400;line-height:1.22;margin:0;max-width:336px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:768px){.personal-page__about{align-self:center}}@media (max-width:425px){.personal-page__about{font-size:14px;max-width:282px;padding-top:5px}}
 .personal-page__open{cursor:pointer;height:24px;margin-left:18px;padding-top:8px;transition:opacity .5s ease;width:24px}.personal-page__open:hover{opacity:.6;transition:opacity .5s ease}@media (max-width:425px){.personal-page__open{height:18px;margin-left:0;width:18px}}
-.personal-page__avatar-container{cursor:pointer;display:flex}
+.personal-page__avatar-container{cursor:pointer;display:flex}@media (max-width:768px){.personal-page__avatar-container{justify-content:center}}
 .personal-page__avatar{border-radius:50%;height:120px;width:120px}.personal-page__avatar:hover{transition:all .4s ease}@media (max-width:768px){.personal-page__avatar{align-self:center}}
 .personal-page__avatar-container-overlay{background-color:rgba(0,0,0,.8);border-radius:50%;cursor:pointer;height:120px;opacity:0;pointer-events:none;position:absolute;width:120px}
 .personal-page__edit-overlay{left:46px;max-width:26px;position:absolute;top:46px}
@@ -39,11 +39,12 @@
 .popup__card-body{border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;display:flex;flex-direction:column;max-height:75vh;max-width:75vw;position:relative}
 .popup__close{background-color:transparent;border:none;height:32px;position:absolute;right:-34px;top:-41px;width:32px}@media (max-width:530px){.popup__close{height:20px;right:5px;top:-37px;width:20px}}
 .popup__image-close{cursor:pointer;height:32px;transition:opacity .5s ease;width:32px}.popup__close:hover{opacity:.6;transition:opacity .5s ease}@media (max-width:530px){.popup__image-close{height:20px;width:20px}}
-.popup__title{font-size:24px;font-style:normal;font-weight:900;line-height:1.2;margin:0 0 41px}@media (max-width:425px){.popup__title{font-size:18px;margin-bottom:40px}}
-.popup__input{border-style:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;font-style:normal;font-weight:400;margin-bottom:27px;min-height:28px;outline:none;padding:0;width:100%}@media (max-width:425px){.popup__input{margin-top:25px;min-height:32px}}
+.popup__title{font-size:24px;font-style:normal;font-weight:900;line-height:1.2;margin:0 0 41px}@media (max-width:425px){.popup__title{font-size:18px;margin-bottom:75px}}
+.popup__title_size-margin_small{margin-bottom:13px}
+.popup__input{border-style:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;font-style:normal;font-weight:400;margin-bottom:27px;min-height:28px;outline:none;padding:0;width:100%}@media (max-width:425px){.popup__input{margin-bottom:25px;min-height:32px}}
 .popup__input_type_error{border-bottom:1px solid red;margin-bottom:0}
 .popup__error{color:red;display:inline-block;font-size:12px;font-style:normal;font-weight:400;line-height:1.35;margin:0;max-width:358px;min-height:27px;padding:0}
-.popup__save{background-color:#000;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-style:normal;font-weight:400;line-height:1.22;margin-top:22px;padding:14px 0 11px;transition:all 1s ease;width:100%}.popup__save:hover{opacity:.8;transition:all .3s ease}@media (max-width:425px){.popup__save{font-size:14px;line-height:1.2;margin-top:43px;padding-bottom:14px 0}}
+.popup__save{background-color:#000;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-style:normal;font-weight:400;line-height:1.22;margin-top:22px;padding:14px 0 11px;transition:all 1s ease;width:100%}.popup__save:hover{opacity:.8;transition:all .3s ease}@media (max-width:425px){.popup__save{font-size:14px;line-height:1.2;margin-top:25px;padding-bottom:14px 0}}
 .popup__save_disabled{background:#fff;border:1px solid rgba(0,0,0,.2);box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;color:rgba(0,0,0,.2);cursor:auto;transition:all .1s ease}.popup__save_disabled:focus{-webkit-tap-highlight-color:rgba(0,0,0,.2)}.popup__save_disabled:active{-webkit-tap-highlight-color:rgba(255,255,255,.2)}
 .popup__gallery-card{background:#000;height:100%;opacity:.9;position:fixed;width:100%}
 .popup__description-name{font-size:12px;font-style:normal;font-weight:400;line-height:15px}
