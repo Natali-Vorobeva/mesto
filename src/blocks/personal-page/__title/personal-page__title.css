@@ -1,5 +1,6 @@
 .personal-page__title {
   display: flex;
+  transition: all .4s ease;
 }
 
 @media(max-width:1120px){

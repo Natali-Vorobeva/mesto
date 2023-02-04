@@ -2,6 +2,14 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  
+}
+
+.personal-page__avatar:hover {
+  transition: all .4s ease;
+  /* background: rgba(0, 0, 0, 0.8); */
+  /* opacity: .3; */
+
 }
 
 @media (max-width:768px){

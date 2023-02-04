@@ -17,7 +17,15 @@
   <main class="main">
     <section class="personal-page">
       <div class="personal-page__title">
-        <img src="<%=require('./images/ava.jpg')%>" class="personal-page__avatar" alt="Здесь должна быть аватарка">
+        <div class="personal-page__avatar-container">
+          <div class="personal-page__avatar-container-overlay">
+            <img src="<%=require('./images/edit-button.png')%>" class="personal-page__edit-overlay" alt="Редактировать аватарку">
+          </div>
+          <div class="personal-page__avatar-container-avatar">
+            <img src="#" class="personal-page__avatar" alt="Здесь должна быть аватарка">
+          </div>
+
+        </div>
         <div class="personal-page__data">
           <div class="personal-page__account">
             <h1 class="personal-page__username">Жа</h1>
@@ -39,6 +47,37 @@
   <footer class="footer">
     <p class="footer__copyright">© 2022 Mesto Russia</p>
   </footer>
+
+  <div class="popup popup-delete-place">
+    <div class="popup__container">
+      <form action="#" name="delete-place" class="form popup__content popup__content_form_avatar" novalidate>
+        <button class="popup__close" type="button" name="button16" aria-label="Закрыть">
+          <img id="personal-close" src="<%=require('./images/Close-Icon.svg')%>" class="popup__image-close"
+            alt="Закрыть окно">
+        </button>
+        <h3 class="popup__title popup__title_size-margin_small">Вы уверены?</h3>
+        <button id="delete-place" type="submit" class="popup__save" name="button17">Да</button>
+      </form>
+    </div>
+  </div>
+
+<div class="popup popup_form_avatar">
+    <div class="popup__container">
+      <form action="#" name="avatar" class="form popup__content popup__content_form_avatar" novalidate>
+        <button class="popup__close" type="button" name="button14" aria-label="Закрыть">
+          <img id="personal-close" src="<%=require('./images/Close-Icon.svg')%>" class="popup__image-close"
+            alt="Закрыть окно">
+        </button>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <div class="popup__input-container">
+          <input type="url" id="avatar-image-input" placeholder="Ссылка на изображение"
+            class="popup__input popup__input_data_avatar" name="avatar" autocomplete="off" required>
+          <span class="avatar-image-input-error popup__input-error"></span>
+        </div>
+        <button id="avatar-save" type="submit" class="popup__save" name="button15">Сохранить</button>
+      </form>
+    </div>
+  </div>
   <div class="popup popup_form_personal">
     <div class="popup__container">
       <form action="#" name="account" class="form popup__content popup__content_form_account" novalidate>
@@ -49,7 +88,7 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <div class="popup__input-container">
           <input type="text" id="username-input" placeholder="Имя" class="popup__input popup__input_data_name"
-            name="userName" required minlength="2" maxlength="40" autocomplete="off">
+            name="name" required minlength="2" maxlength="40" autocomplete="off">
           <span class="username-input-error popup__input-error"></span>
           <input type="text" id="about-input" placeholder="Вид деятельности"
             class="popup__input popup__input_data_about" name="about" required minlength="2" maxlength="200"
@@ -76,7 +115,7 @@
             class="popup__input popup__input_address_image" name="link" autocomplete="off" required>
           <span class="link-image-input-error popup__input-error"></span>
         </div>
-        <button id="place-save" type="submit" class="popup__save" name="button12">Сохранить</button>
+        <button id="place-save" type="submit" class="popup__save" name="button12">Создать</button>
       </form>
     </div>
   </div>
@@ -100,12 +139,16 @@
       <img src="#" class="gallery__image gallery__image_source_card" alt="">
       <figcaption class="gallery__description">
         <h2 class="gallery__name"></h2>
-        <button class="gallery__button-favourites" type="button" name="button">
-          <img src="<%=require('./images/favorite-black.svg')%>" class="gallery__image-favourites-liked active"
-            alt="Добавить в избранное">
-          <img src="<%=require('./images/add-favorites.svg')%>" class="gallery__image-favourites"
-            alt="Добавить в избранное">
-        </button>
+        <div class="gallery__likes">
+          <button class="gallery__button-favourites" type="button" name="button">
+            <img src="<%=require('./images/favorite-black.svg')%>" class="gallery__image-favourites-liked active"
+              alt="Добавить в избранное">
+            <img src="<%=require('./images/add-favorites.svg')%>" class="gallery__image-favourites"
+              alt="Добавить в избранное">
+          </button>
+          <p class="gallery__likes-counter">0</p>
+        </div>
+
       </figcaption>
     </figure>
   </template>

@@ -12,14 +12,16 @@
 @import url('../blocks/personal-page/__account/personal-page__account.css');
 @import url('../blocks/personal-page/__about/personal-page__about.css');
 @import url('../blocks/personal-page/__open/personal-page__open.css');
+@import url('../blocks/personal-page/__avatar-container/personal-page__avatar-container.css');
 @import url('../blocks/personal-page/__avatar/personal-page__avatar.css');
+@import url('../blocks/personal-page/__avatar-container-overlay/personal-page__avatar-container-overlay.css');
+@import url('../blocks/personal-page/__edit-overlay/personal-page__edit-overlay.css');
 @import url('../blocks/personal-page/__data/personal-page__data.css');
 @import url('../blocks/personal-page/__username/personal-page__username.css');
 @import url('../blocks/personal-page/__title/personal-page__title.css');
 @import url('../blocks/personal-page/__edit/personal-page__edit.css');
 @import url('../blocks/personal-page/__button/personal-page__button.css');
 @import url('../blocks/personal-page/__image-button/personal-page__image-button.css');
-
 
 @import url('../blocks/gallery/gallery.css');
 @import url('../blocks/gallery/__card-body/gallery__card-body.css');
@@ -28,6 +30,7 @@
 @import url('../blocks/gallery/__description/gallery__description.css');
 @import url('../blocks/gallery/__name/gallery__name.css');
 @import url('../blocks/gallery/__delete/gallery__delete.css');
+@import url('../blocks/gallery/__likes-counter/gallery__likes-counter.css');
 @import url('../blocks/gallery/__button-favourites/gallery__button-favourites.css');
 @import url('../blocks/gallery/__image-favourites/gallery__image-favourites.css');
 @import url('../blocks/gallery/__image-favourites-liked/gallery__image-favourites-liked.css');
@@ -44,6 +47,7 @@
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/popup/__image-close/popup__image-close.css');
 @import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__title/_size-margin/popup__title_size-margin_small.css');
 @import url('../blocks/popup/__input/popup__input.css');
 @import url('../blocks/popup/__input/_type/popup__input_type_error.css');
 @import url('../blocks/popup/__error/popup__error.css');
@@ -55,10 +59,5 @@
 @import url('../blocks/active/active.css');
 @import url('../blocks/inputValidStyle/inputValidStyle.css');
 @import url('../blocks/errorValidStyle/errorValidStyle.css');
-
-
-
-
-
 
 
