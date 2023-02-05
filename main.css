@@ -10,7 +10,7 @@
 .personal-page__open{cursor:pointer;height:24px;margin-left:18px;padding-top:8px;transition:opacity .5s ease;width:24px}.personal-page__open:hover{opacity:.6;transition:opacity .5s ease}@media (max-width:425px){.personal-page__open{height:18px;margin-left:0;width:18px}}
 .personal-page__avatar-container{cursor:pointer;display:flex}@media (max-width:768px){.personal-page__avatar-container{justify-content:center}}
 .personal-page__avatar{border-radius:50%;height:120px;width:120px}.personal-page__avatar:hover{transition:all .4s ease}@media (max-width:768px){.personal-page__avatar{align-self:center}}
-.personal-page__avatar-container-overlay{background-color:rgba(0,0,0,.8);border-radius:50%;cursor:pointer;height:120px;opacity:0;pointer-events:none;position:absolute;width:120px}
+.personal-page__avatar-container-overlay{background-color:rgba(0,0,0,.8);border-radius:50%;cursor:pointer;height:120px;opacity:1;pointer-events:none;position:absolute;transition:opacity .7s ease;width:120px}
 .personal-page__edit-overlay{left:46px;max-width:26px;position:absolute;top:46px}
 .personal-page__data{display:flex;flex-direction:column;justify-content:center;padding:0 0 0 30px}@media(max-width:1120px){.personal-page__data{padding-left:0;padding-top:26px}}
 .personal-page__username{display:block;font-size:42px;font-style:normal;font-weight:500;line-height:1.4;margin:0;overflow:hidden;position:relative;text-overflow:ellipsis;white-space:nowrap}@media (max-width:897px){.personal-page__username{align-self:center;font-size:calc(18.68111px + 2.59965vw)}}@media (max-width:425px){.personal-page__username{display:block;max-width:191px}}
@@ -49,6 +49,7 @@
 .popup__gallery-card{background:#000;height:100%;opacity:.9;position:fixed;width:100%}
 .popup__description-name{font-size:12px;font-style:normal;font-weight:400;line-height:15px}
 .active{opacity:0}
+.overlay-hover{opacity:0;transition:opacity .7s ease}
 .inputValidStyle{margin-bottom:0}
 .errorValidStyle{height:0}
 
