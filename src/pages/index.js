@@ -1,6 +1,7 @@
 import './index.css';
 
 import {
+  selectorsList,
   popupAvatar,
   formAvatar,
   avatar,
@@ -11,11 +12,12 @@ import {
   popupUserName,
   popupAbout,
   openPopupPlace,
-  formCard
+  formCard,
+  editAvatar
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js';
-import { FormValidator, selectorsList } from '../components/FormValidator.js';
+import FormValidator from '../components/FormValidator.js';
 import UserInfo from '../components/UserInfo.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
@@ -110,7 +112,6 @@ const cardList = new Section({
 }, '.gallery');
 
 
-
 // Отправка формы Аккаунт
 
 const userInfo = new UserInfo({ name, about, avatar });
@@ -167,6 +168,7 @@ const submitFormAddCard = new PopupWithForm({
       .then((item) => {
         cardList.addItem(createCard(item));
         submitFormAddCard.closePopup();
+        // console.log(submitFormAddCard);
       })
 
       .catch((err) => {
@@ -188,30 +190,30 @@ deleteCardPopup.setEventListeners();
 
 //  Слушатели
 
-popupAvatar.addEventListener('mouseout', () => {
-  const editAvatar = document.querySelector('.personal-page__avatar-container-overlay');
-  editAvatar.style.transition = "opacity .7s ease";
-  editAvatar.style.opacity = "0";
+popupAvatar.addEventListener('mouseover', () => {
+  editAvatar.classList.remove('overlay-hover');
 });
 
-popupAvatar.addEventListener('mouseover', () => {
-  const editAvatar = document.querySelector('.personal-page__avatar-container-overlay');
-  editAvatar.style.transition = 'opacity .7s ease';
-  editAvatar.style.opacity = '1';
+popupAvatar.addEventListener('mouseout', () => {
+  editAvatar.classList.add('overlay-hover');
 });
 
 popupAvatar.addEventListener('click', () => {
+  validationFormAvatar.resetValidation();
   submitFormAvatar.openPopup();
 });
 
 openPopupPersonal.addEventListener('click', () => {
+  validationFormAccount.resetValidation();
   const userData = userInfo.getUserInfo();
-  popupUserName.setAttribute('value', userData.name);
-  popupAbout.setAttribute('value', userData.about);
   editProfilePopup.openPopup();
+  popupUserName.value = userData.name;
+  popupAbout.value = userData.about;
+
 });
 
 openPopupPlace.addEventListener('click', () => {
+  validationFormAddCard.resetValidation();
   submitFormAddCard.openPopup();
 });
 

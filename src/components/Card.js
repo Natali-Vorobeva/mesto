@@ -39,9 +39,7 @@ class Card {
     imageElement.src = this._link;
     imageElement.alt = `Вид на  ${this._name}`;
   }
-
-
-
+  
     // Кнопка delete
 
     deleteCard() {

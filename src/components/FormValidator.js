@@ -1,15 +1,4 @@
-const selectorsList = {
-  formSelector: '.form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error',
-  validStyleInputClass: 'inputValidStyle',
-  validStyleErrorClass: 'errorValidStyle',
-}
-
-class FormValidator {
+export default class FormValidator {
   constructor(selectorsList, form) {
     this._formSelector = selectorsList.formSelector;
     this._inputSelector = selectorsList.inputSelector;
@@ -58,6 +47,15 @@ class FormValidator {
       return !inputEl.validity.valid;
     });
   }
+
+  resetValidation() {
+    this.disableButtonState()
+    this._inputsList.forEach((inputEl) => {
+      this._hideInputError(inputEl);
+    });
+
+  }
+
   disableButtonState() {
     this._buttonElement.disabled = true;
     this._buttonElement.classList.add(this._inactiveButtonClass);
@@ -73,12 +71,7 @@ class FormValidator {
   };
 
   _setEventListeners() {
-    this._toggleButtonState();
-    this._form.addEventListener('reset', () => {
-      setTimeout(() => {
-        this._toggleButtonState();
-      }, 0);
-    });
+    this.resetValidation();
     this._inputsList.forEach((inputEl) => {
       inputEl.addEventListener('input', () => {
         this._toggleButtonState();
@@ -89,9 +82,6 @@ class FormValidator {
   }
 
   enableValidation() {
-
     this._setEventListeners();
   };
 };
-
-export { FormValidator, selectorsList };
