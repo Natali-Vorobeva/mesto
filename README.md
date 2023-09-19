@@ -1,28 +1,21 @@
-# Проект: «Mesto» -
-- *это учебный проект по основам JavaScript на курсе "веб-разработчик" в Яндекс.Практикуме.*
-#### Предыдущие учебные работы на этом курсе:
+# Проект: «Mesto» с реализацией на чистом JS
 
-  * "Как надо учиться" (how-to-learn) - 1-ый спринт.
-  * "Путешествие по России" (russian-travel) - 2-3 спринты.
-
-
-#### Используемые технологии:
+### Функционал ![](https://cdn.jsdelivr.net/gh/Readme-Workflows/Readme-Icons@main/icons/octicons/ApprovedChanges.svg)
+* редактирование пользовательских данных
+* валидация форм
+* добавление новых карточек
+* удаление своих карточек
+* добавление и отмена лайков
+* открытие увеличенного изображения в попапе
+### Технологии ![](https://cdn.jsdelivr.net/gh/Readme-Workflows/Readme-Icons@main/icons/octicons/ApprovedChanges.svg)
  * HTML5
  * CSS 3
  * JavaScript (ES6)
  * ООП
- * БЭМ (Nested)
+ * БЭМ Nested методология
  * Webpack
  * git/github
  * Figma
+### Ссылки ![](https://cdn.jsdelivr.net/gh/Readme-Workflows/Readme-Icons@main/icons/octicons/ApprovedChanges.svg)
 
-#### Функционал:
-* редактирование пользовательских данных;
-* добавление новых карточек;
-* валидация форм;
-* удаление карточек;
-* добавление и отмена лайков;
-* открытие увеличенного изображения в попапе;
-##
-##
-#### _Ссылка на сайт_ - https://natali-vorobeva.github.io/mesto/
+[проект: "Mesto"](https://natali-vorobeva.github.io/mesto/)
